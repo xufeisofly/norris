@@ -1,0 +1,11 @@
+<%= form_for @post, url: posts_path do |f| %>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <%= f.file_field(:content) %>  
+    </div>
+    <div class="file-path-wrapper">
+      <%= text_field_tag(class: 'file-path validate') %>
+    </div>
+  </div>
+<% end %>
