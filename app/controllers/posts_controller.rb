@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.create(post_params)
 
     redirect_to @post
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
   def post_params
     file = params[:post][:content]
     params[:post][:content] = file.read
-    binding.pry
     params.require(:post).permit(:title, :content)
   end
 end
