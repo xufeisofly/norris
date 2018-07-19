@@ -10,15 +10,28 @@
 
 h1 {
   @extend .header;
-  font-size: 34px;
+  font-size: 44px;
 }
 
 h2 {
   @extend .header;
-  font-size: 24px;
+  font-size: 34px;
 }
 
 h3 {
   @extend .header;
+  font-size: 24px;
+}
+
+h4 {
+  @extend .header;
   font-size: 14px;
+}
+
+.code {
+  overflow-x: scroll;
+}
+
+.example {
+  overflow-x: scroll;
 }

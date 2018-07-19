@@ -1,5 +1,9 @@
 <div id="post-content-container" class="post-content-container">
   <div id="post-content" class="post-content">
-    <%= org_to_html post.content %>
+    <% if post.org? %>
+      <%= org_to_html post.content %>
+    <% else %>
+      <%= markdown_to_html post.content %>
+    <% end %>
   </div>
 </div>
