@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_04_145848) do
+ActiveRecord::Schema.define(version: 2018_07_19_152509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_04_145848) do
     t.string "desc_img", limit: 255
     t.text "content"
     t.integer "user_id"
+    t.integer "content_type", comment: "文件格式"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

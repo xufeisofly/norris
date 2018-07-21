@@ -29,7 +29,8 @@ class PostsController < ApplicationController
 
   def post_params
     file = params[:post][:content]
+    params[:post][:content_type] = file.original_filename.split('.').last
     params[:post][:content] = file.read
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :content_type)
   end
 end

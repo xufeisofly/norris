@@ -17,4 +17,8 @@ module ApplicationHelper
       CodeRay.scan(code, language).div(tab_width: 2)
     end
   end
+
+  def org_to_html(org_str)
+    Organismo::Document.new(org_str).to_html.html_safe
+  end
 end

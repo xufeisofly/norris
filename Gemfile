@@ -41,6 +41,7 @@ gem 'materialize-sass', '~> 1.0.0.rc2'
 gem 'material_icons'
 gem 'redcarpet', '~> 3.4.0'
 gem 'coderay', '~> 1.1.2'
+gem 'organismo', git: 'git@github.com:xufeisofly/organismo.git'
 
 group :development, :test do
 end
