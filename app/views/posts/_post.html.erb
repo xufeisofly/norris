@@ -1,18 +1,18 @@
+<% if post.org? %>
+  <% content = org_to_html post.content %>
+<% else %>
+  <% content = markdown_to_html post.content %>
+<% end %>
+
 <div class="row">
   <div class="col s12 m6">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title"><%= post.title %></span>
-        <% if post.org? %>
-          <% content = org_to_html post.content %>
-        <% else %>
-          <% content = markdown_to_html post.content %>
-        <% end %>
-        <%= content_preview(content) %>
+        <span><%= content_preview(content) %></span>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        <%= link_to '阅读更多', post %>
       </div>
     </div>
   </div>
