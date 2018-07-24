@@ -5,8 +5,8 @@
         <%= image_tag 'me', class: 'circle avatar' %>
       </div>
       <div class="col s10 info">
-        <div class="name">name</div>
-        <div class="time">2018年1月1日 19点10分</div>
+        <div class="name">Nor</div>
+        <div class="time"><%= post.updated_at.strftime('%Y年%m月%d日 %H:%M:%S') %></div>
       </div>
     </div>
   </div>
