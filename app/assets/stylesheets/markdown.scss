@@ -5,7 +5,8 @@
 .code {
   padding: 25px;
   border: solid 1px rgba(51,51,51,0.12);
-  background: rgba(246,246,246,0.2);
+  background: rgba(246,246,246,0.3);
+  overflow: auto;
 }
 
 h1 {
@@ -38,12 +39,8 @@ h4 {
   }
 }
 
-.code {
-  overflow-x: scroll;
-}
-
 .example {
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 blockquote {

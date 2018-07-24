@@ -1,0 +1,19 @@
+<% if post.org? %>
+  <% content = org_to_html post.content %>
+<% else %>
+  <% content = markdown_to_html post.content %>
+<% end %>
+
+<div class="row container">
+  <div class="col s12 m8 xl8 offset-m2 offset-xl2">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title"><%= post.title %></span>
+        <span class="grey-text text-darken-1"><%= content_preview(content) %></span>
+      </div>
+      <div class="card-action">
+        <%= link_to '阅读更多', post, data: { turbolinks: false } %>
+      </div>
+    </div>
+  </div>
+</div>

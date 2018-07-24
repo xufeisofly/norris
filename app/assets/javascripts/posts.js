@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var ready = function() {
   $('.sidenav').sidenav()
 
   // sidenav open
@@ -14,4 +14,9 @@ $(document).ready(function() {
       instance.close()
     }
   })
-})
+
+  // parallax
+  $('.parallax').parallax()
+}
+
+$(document).ready(ready)
