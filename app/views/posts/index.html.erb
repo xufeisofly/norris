@@ -14,6 +14,10 @@
   <%= render @posts.order(updated_at: :desc) %>
 </div>
 
+<div class="section posts-container">
+  <%= render partial: 'shared/pagination', locals: { resources: @posts } %>  
+</div>
+
 <div class="parallax-container">
   <div class="parallax"><%= image_tag 'timg' %></div>
 </div>
