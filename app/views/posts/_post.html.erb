@@ -9,10 +9,11 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title"><%= post.title %></span>
-        <span class="grey-text text-darken-1"><%= content_preview(content) %></span>
+        <span class="grey-text text-darken-3"><%= content_preview(content) %></span>
       </div>
       <div class="card-action">
-        <%= link_to '阅读更多', post, data: { turbolinks: false } %>
+        <span class="grey-text text-darken-1"><%= post.updated_at.strftime('%Y年%m月%d日 %H:%M:%S') %></span>
+        <%= link_to '阅读更多', post, data: { turbolinks: false }, class: 'read-more-link' %>
       </div>
     </div>
   </div>
