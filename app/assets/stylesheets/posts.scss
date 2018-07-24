@@ -48,5 +48,14 @@
 
 .card-title {
   color: #ee6e73;
-  font-weight: 300;
+}
+
+.card-content {
+  line-height: 30px;
+}
+
+.card-action {
+  .read-more-link {
+    float: right;
+  }
 }
