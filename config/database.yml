@@ -23,5 +23,5 @@ test:
 
 production:
   <<: *default
-  secret_key_base: 32f60f399d42498466a17cba71c723b42f9cbc6b14660cc03ecdd71bb9e36113a1ac0206f5fff7ef3e4a1eacbe5d25a6d412532ffd11ce5599e77658cf19003c
+  secret_key_base: <%= ENV['RAILS_MASTER_KEY'] %>
   database: norris_production
