@@ -1,0 +1,15 @@
+<% total_count = resources.count / Post.per_page + 1 %>
+
+<ul class="pagination">
+  <% previous_class_name = (params[:page].to_i == 1 ? 'disabled' : 'waves-effect') %>
+  <%= content_tag(:li, link_to('<i class="material-icons">chevron_left</i>'.html_safe, posts_path(page: params[:page].to_i - 1), data: { turbolinks: false }), class: previous_class_name)  %>
+
+  <% total_count.times do |index| %>
+    <% page_index = index + 1 %>
+    <% class_name = (params[:page].to_i == page_index ? 'active' : 'waves-effect') %>
+    <%= content_tag(:li, link_to(page_index, posts_path(page: page_index), data: { turbolinks: false }), class: class_name) %>
+  <% end %>
+
+  <% next_class_name = (params[:page].to_i == total_count ? 'disabled' : 'waves-effect') %>
+  <%= content_tag(:li, link_to('<i class="material-icons">chevron_right</i>'.html_safe, posts_path(page: params[:page].to_i + 1), data: { turbolinks: false }), class: next_class_name)  %>
+</ul>

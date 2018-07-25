@@ -18,3 +18,9 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "markdown";
 
+.pagination {
+  .disabled {
+    pointer-events: none;
+  }
+  text-align: center;
+}
