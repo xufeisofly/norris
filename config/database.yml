@@ -23,5 +23,4 @@ test:
 
 production:
   <<: *default
-  secret_key_base: <%= ENV['RAILS_MASTER_KEY'] %>
   database: norris_production
