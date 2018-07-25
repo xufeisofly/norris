@@ -13,7 +13,8 @@
 }
 .post-title-container {
   .post-title {
-    font-weight: 350;
+    font-weight: 700;
+    font-family: "Open Sans", sans-serif;
   }
   margin-bottom: 50px;
 }
@@ -28,10 +29,11 @@
 }
 .banner {
   h1 {
-    font-family: Product Sans,Arial,Helvetica,sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding-top: 50px;
     font-size: 64px;
+    font-weight: 700;
   }
   img {
     height: 100px;
@@ -47,11 +49,13 @@
 }
 
 .card-title {
-  color: #ee6e73;
+  font-weight: 500 !important;
+  font-family: "Open Sans", sans-serif;
 }
 
 .card-content {
   line-height: 30px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .card-action {
