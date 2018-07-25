@@ -14,7 +14,7 @@ set :domain, 'niltouch.cn'
 set :deploy_to, '/home/ubuntu/norris'
 set :repository, 'git@github.com:xufeisofly/norris.git'
 set :branch, 'master'
-
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/master.key')
 
 # Optional settings:
   set :user, 'ubuntu'          # Username in the server to SSH to.
