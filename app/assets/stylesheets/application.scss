@@ -14,8 +14,17 @@
  *= require_self
  */
 
+@import "materialize/components/color-variables";
+$primary-color: color("grey", "darken-4") !default;
+$secondary-color: color("yellow", "base") !default;
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+@font-face {
+	font-family: 'source code pro';
+	src: asset-url('SourceCodePro-Medium.ttf') format('truetype');
+}
+
 @import "markdown";
 
 .pagination {
