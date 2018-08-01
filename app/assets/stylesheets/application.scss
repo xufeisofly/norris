@@ -32,3 +32,10 @@ $primary-color: color("grey", "darken-4") !default;
   }
   text-align: center;
 }
+
+.page-footer {
+  padding-top: 0;
+  .container p {
+    display: inherit;
+  }
+}
