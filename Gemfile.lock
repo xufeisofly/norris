@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:xufeisofly/organismo.git
-  revision: 80301afac3e9beb186c5b43919834bb0b36f29c7
+  revision: e17f5726944e55da33065c381d78dddc3dba6316
   specs:
     organismo (0.1.0)
 
@@ -265,4 +265,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
