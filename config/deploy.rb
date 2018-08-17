@@ -10,7 +10,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'norris'
-set :domain, 'niltouch.cn'
+set :domain, 'www.niltouch.cn'
 set :deploy_to, '/home/ubuntu/norris'
 set :repository, 'git@github.com:xufeisofly/norris.git'
 set :branch, 'master'
