@@ -66,3 +66,15 @@
     float: right;
   }
 }
+
+.post-tags {
+  display: inline-block;
+  margin-left: 10px;
+  .chip {
+    margin-bottom: 0;
+  }
+}
+
+.show-divider {
+  margin-top: 10px;
+}

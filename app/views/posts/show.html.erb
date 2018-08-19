@@ -3,8 +3,13 @@
     <div class="col s12 m12 xl9 offset-xl2 post-show">
       <%= render partial: 'post_title', locals: { post: @post } %>
       <%= render partial: 'post_author', locals: { post: @post } %>
-      <div class="divider"></div>
-      <%= render partial: 'post_content', locals: { post: @post } %>    
+
+      <%= render partial: 'post_tags', locals: { post: @post } %>
+
+      <div class="divider show-divider"></div>
+
+      <%= render partial: 'post_content', locals: { post: @post } %>
     </div>
   </div>
 </div>
+j
