@@ -17,6 +17,9 @@ var ready = function() {
 
   // parallax
   $('.parallax').parallax()
+
+  // select
+  $('select').formSelect()
 }
 
 $(document).ready(ready)

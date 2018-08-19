@@ -29,8 +29,9 @@ class PostsController < ApplicationController
 
   def post_params
     file = params[:post][:content]
+    params[:post][:tags] = params[:post][:tags].select { |el| el.present? }
     params[:post][:content_type] = file.original_filename.split('.').last
     params[:post][:content] = file.read
-    params.require(:post).permit(:title, :content, :content_type)
+    params.require(:post).permit(:title, :content, :content_type, tags: [])
   end
 end
