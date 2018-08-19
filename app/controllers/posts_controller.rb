@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post.record_reader_ip(request.remote_ip)
   end
 
   def index
