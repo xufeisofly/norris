@@ -1,0 +1,13 @@
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large black">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul>
+    <% Tag.all.each do |tag| %>
+      <li class="tags-li">
+        <%= link_to tag.name, 'javascript:void()', class: "btn-floating grey darken-#{rand(0..4)}" %>
+        <span class="btn-floating tags-count"><%= tag.posts.count %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

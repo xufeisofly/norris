@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_19_033855) do
+ActiveRecord::Schema.define(version: 2018_08_23_081551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "post_tag_relations", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_tag_relations_on_post_id"
+    t.index ["tag_id"], name: "index_post_tag_relations_on_tag_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -23,8 +32,14 @@ ActiveRecord::Schema.define(version: 2018_08_19_033855) do
     t.text "content"
     t.integer "user_id"
     t.integer "content_type", comment: "文件格式"
-    t.string "tags", default: [], comment: "标签", array: true
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

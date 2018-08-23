@@ -20,6 +20,11 @@ var ready = function() {
 
   // select
   $('select').formSelect()
+
+  // floating action button
+  $('.fixed-action-btn').floatingActionButton({
+    hoverEnabled: false
+  })
 }
 
 $(document).ready(ready)

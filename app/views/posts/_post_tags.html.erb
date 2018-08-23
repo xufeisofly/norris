@@ -1,5 +1,5 @@
 <div class="post-tags">
   <% post.tags.each do |tag| %>
-    <div class="chip"><%= tag %></div>
+    <div class="chip"><%= tag&.name %></div>
   <% end %>
 </div>
