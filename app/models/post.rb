@@ -19,4 +19,10 @@ class Post < ApplicationRecord
   def readers_num
     reader_ips.size
   end
+
+  def tags_attributes=(tags_params)
+    tags_params.each do |tag_params|
+      self.tags << Tag.find_or_create_by(tag_params) unless tag_params.blank?
+    end
+  end
 end
