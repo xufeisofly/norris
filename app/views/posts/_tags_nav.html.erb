@@ -1,11 +1,11 @@
 <div class="fixed-action-btn">
-  <a class="btn-floating btn-large black">
+  <a class="btn-floating btn-large grey darken-4">
     <i class="large material-icons">menu</i>
   </a>
   <ul>
     <% Tag.all.each do |tag| %>
       <li class="tags-li">
-        <%= link_to tag.name, posts_path(tag_name: tag.name, format: :js), class: "btn-floating grey darken-#{rand(0..4)}", method: :get, remote: true %>
+        <%= link_to tag.name, posts_path(tag_name: tag.name, format: :js), class: "btn-floating grey darken-#{rand(2..4)}", method: :get, remote: true %>
         <span class="btn-floating tags-count"><%= tag.posts.count %></span>
       </li>
     <% end %>
