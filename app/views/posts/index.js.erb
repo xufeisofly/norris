@@ -1,5 +1,2 @@
-let posts = "<%= j(render @posts) %>"
-$('#posts').html(posts)
-
-let pagination = "<%= j(render partial: 'shared/pagination', locals: { resources: @posts })%>"
-$('#posts-pagination').html(pagination)
+$('#posts').html("<%= j(render @posts) %>")
+$('#posts-pagination').html("<%= j(render partial: 'shared/pagination', locals: { resources: @posts })%>")
