@@ -16,7 +16,18 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.paginate(page: params[:page])
+    builder = Post.all.order(updated_at: :desc)
+
+    if params[:tag_name].present?
+      tag = Tag.find_by(name: params[:tag_name])
+      builder = tag.posts
+    end
+
+    @posts = builder.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update

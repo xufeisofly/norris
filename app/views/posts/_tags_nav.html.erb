@@ -5,7 +5,7 @@
   <ul>
     <% Tag.all.each do |tag| %>
       <li class="tags-li">
-        <%= link_to tag.name, 'javascript:void()', class: "btn-floating grey darken-#{rand(0..4)}" %>
+        <%= link_to tag.name, posts_path(tag_name: tag.name, format: :js), class: "btn-floating grey darken-#{rand(0..4)}", method: :get, remote: true %>
         <span class="btn-floating tags-count"><%= tag.posts.count %></span>
       </li>
     <% end %>

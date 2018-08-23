@@ -11,10 +11,10 @@
 <div class="divider"></div>
 
 <div id="posts" class="section white posts-container">
-  <%= render @posts.order(updated_at: :desc) %>
+  <%= render @posts %>
 </div>
 
-<div class="section posts-container">
+<div class="section posts-container" id="posts-pagination">
   <%= render partial: 'shared/pagination', locals: { resources: @posts } %>  
 </div>
 
