@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:xufeisofly/organismo.git
-  revision: 15841a9e6d7b8b8215dc1f1a068bf279c2794770
+  revision: cdde6c6263f5683b7fc7bc6fed9d2282fc586da3
   specs:
     organismo (0.1.0)
 
