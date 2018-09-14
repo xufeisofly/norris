@@ -41,8 +41,9 @@ gem 'materialize-sass', '~> 1.0.0.rc2'
 gem 'material_icons'
 gem 'redcarpet', '~> 3.4.0'
 gem 'coderay', '~> 1.1.2'
-gem 'organismo', git: 'git@github.com:xufeisofly/organismo.git'
+gem 'organismo'
 gem 'will_paginate'
+gem 'faraday'
 
 group :development, :test do
 end
@@ -55,7 +56,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
-  gem 'byebug'
+  gem 'pry-byebug'
   gem 'mina'
 end
 
