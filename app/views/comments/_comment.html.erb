@@ -5,6 +5,9 @@
     </div>
 
     <div id="comment-content" class="col s10">
+      <p class="comment-info">
+        <%= link_to comment.user.name, comment.user.html_url %> commented on <%= time_ago_in_words(comment.created_at) %> ago.
+      </p>
       <%= comment.content %>
     </div>
   </div>

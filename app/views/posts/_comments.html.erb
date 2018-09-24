@@ -2,8 +2,8 @@
   <% if user_signed_in? %>
     <%= render partial: 'comments/new', locals: { post: post } %>
   <% else %>
-    <%= link_to '登陆', authorization_accounts_github_path, method: :get %>
+    <%= button_to 'Github登陆', authorization_accounts_github_path, method: :get, class: 'btn wave-effect github-login-btn' %>
   <% end %>
 
-  <%= render post.comments %>
+  <%= render post.comments.includes(:user) %>
 </div>

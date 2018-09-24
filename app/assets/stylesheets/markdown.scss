@@ -7,15 +7,15 @@
 .code {
   padding: 20px 0;
   border: solid 1px #E3EDF3;
-  background: rgb(51, 62, 75);
+  background: #f6f8fa;
   overflow: auto;
-  color: #fff;
-  border-radius: 5px;
+  color: #24292e;
 }
 
 pre {
-  font-family: 'source code pro';
-  font-size: 18px;
+  // font-family: 'source code pro';
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 14px;
 }
 
 h1 {

@@ -8,12 +8,12 @@
       <% @comment = Comment.new %>
       <%= form_for @comment, method: :post, format: :js, remote: true do |f| %>
         <div class="new-content-container">
-          <%= f.text_area :content %>
+          <%= f.text_area :content, class: "materialize-textarea" %>
           <%= f.hidden_field :post_id, value: post.id %>
           <%= f.hidden_field :user_id, value: current_user.id %>
         </div>
 
-        <%= f.submit '评论' %>
+        <%= f.submit '评论', class: "waves-effect waves-light btn new-comment-btn" %>
       <% end %>
     </div>
   </div>
