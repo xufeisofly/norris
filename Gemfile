@@ -35,7 +35,6 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'devise'
 gem 'jquery-rails'
 gem 'materialize-sass', '~> 1.0.0.rc2'
 gem 'material_icons'
@@ -44,6 +43,8 @@ gem 'coderay', '~> 1.1.2'
 gem 'organismo'
 gem 'will_paginate'
 gem 'faraday'
+gem 'jwt'
+gem 'dotenv-rails'
 
 group :development, :test do
 end
