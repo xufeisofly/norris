@@ -4,7 +4,7 @@ class GithubLoginService
   def auth_url(post: nil)
     params = {
       client_id: '58d92f801e2ddfc2f7f8',
-      redirect_uri: 'www.niltouch.cn/accounts/github/access_token'
+      redirect_uri: 'https://www.niltouch.cn/accounts/github/access_token'
     }
 
     res = faraday_conn.get('/login/oauth/authorize', params)
