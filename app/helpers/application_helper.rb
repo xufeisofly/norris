@@ -21,4 +21,12 @@ module ApplicationHelper
   def org_to_html(org_str)
     Organismo::Document.new(org_str).to_html.html_safe
   end
+
+  def current_user
+    @current_user ||= AuthenticationService.authenticate(request)
+  end
+
+  def user_signed_in?
+    current_user.present?
+  end
 end
