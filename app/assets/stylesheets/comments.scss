@@ -1,0 +1,30 @@
+.comment {
+  min-height: 60px;
+  margin: 20px;
+  .avatar {
+    img {
+      max-width: 60%;
+    }
+  }
+
+  #comment-content {
+    background-color: #f9f9f9;
+    min-height: 60px;
+    padding: 0 20px 15px 20px;
+  }
+}
+
+.new-comment-btn {
+  input {
+    color: #fff;
+  }
+  float: right;
+}
+
+.ewe_edit_button {
+  display: none;
+}
+
+.comment-info {
+  color: #a1a1a1;
+}

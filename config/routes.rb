@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  default_url_options :host => "localhost:3000"
-
   root to: 'posts#index'
 
   resources :posts
@@ -8,9 +6,11 @@ Rails.application.routes.draw do
   namespace :accounts do
     resource :github, only: [] do
       collection do
-        get 'login', to: 'githubs#authorization'
-        get 'access_token'
+        get 'authorization'
+        get 'login'
       end
     end
   end
+
+  resources :comments, only: [:create]
 end

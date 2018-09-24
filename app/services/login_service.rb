@@ -3,8 +3,8 @@ class GithubLoginService
 
   def auth_url(post: nil)
     params = {
-      client_id: '58d92f801e2ddfc2f7f8',
-      redirect_uri: 'https://www.niltouch.cn/accounts/github/access_token'
+      client_id: ENV['GITHUB_CLIENT_ID'],
+      redirect_uri: 'https://www.niltouch.cn/accounts/github/login'
     }
 
     res = faraday_conn.get('/login/oauth/authorize', params)
@@ -14,8 +14,8 @@ class GithubLoginService
   def login(code)
     params = {
       code: code,
-      client_id: '58d92f801e2ddfc2f7f8',
-      client_secret: '419ecaee73d2d0c558f40c6780398923b0646257'
+      client_id: ENV['GITHUB_CLIENT_ID'],
+      client_secret: ENV['GITHUB_CLIENT_SECRET_KEY']
     }
     res = faraday_conn.post('login/oauth/access_token', params)
     user_data = faraday_api_conn.get('user?' + res.body).body

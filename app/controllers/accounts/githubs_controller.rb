@@ -6,7 +6,7 @@ class Accounts::GithubsController < ApplicationController
     redirect_to auth_url
   end
 
-  def access_token
+  def login
     user_data = GithubLoginService.new.login(params[:code])
 
     user = User.create_with(
