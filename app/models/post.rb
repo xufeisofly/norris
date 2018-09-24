@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   has_many :post_tag_relations
   has_many :tags, through: :post_tag_relations
+  has_many :comments
 
   accepts_nested_attributes_for :tags
 

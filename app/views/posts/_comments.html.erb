@@ -1,0 +1,9 @@
+<div id="post-comments">
+  <% if user_signed_in? %>
+    <%= render partial: 'comments/new', locals: { post: post } %>
+  <% else %>
+    <%= link_to '登陆', authorization_accounts_github_path, method: :get %>
+  <% end %>
+
+  <%= render post.comments %>
+</div>
