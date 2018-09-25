@@ -1,8 +1,9 @@
 <div id="post-comments">
+  <p class="count-num"><%= post.comments.count %>条评论</p>
   <% if user_signed_in? %>
     <%= render partial: 'comments/new', locals: { post: post } %>
   <% else %>
-    <%= button_to 'Github登陆', authorization_accounts_github_path, method: :get, class: 'btn wave-effect github-login-btn' %>
+    <%= button_to 'Github登陆', authorization_accounts_github_path, method: :get, class: 'btn wave-effect github-login-btn' %><span style="color: #9EABB3">请先登陆再评论</span>
   <% end %>
 
   <%= render post.comments.includes(:user) %>

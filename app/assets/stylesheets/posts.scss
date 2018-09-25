@@ -98,6 +98,13 @@
   margin-bottom: 0 !important;
 }
 
-#post-comments .button_to {
-  margin: 20px 0 !important;
+#post-comments {
+  .count-num {
+    color: #9EABB3;
+  }
+  .button_to {
+    margin: 20px 10px 20px 0 !important;
+    display: inline-block;
+  }
 }
+
