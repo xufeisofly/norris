@@ -9,6 +9,12 @@ class Post < ApplicationRecord
 
   self.per_page = 10
 
+  class << self
+    def total_readers_num
+      self.all.inject(0) { |result, post| result += post.readers_num }
+    end
+  end
+
   def reader_ips
     Redis.current.smembers "p:#{self.id}:rds"
   end

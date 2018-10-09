@@ -2,6 +2,12 @@
   <div class="parallax"><%= image_tag 'timg.jpg' %></div>
 </div>
 
+<div class="read-num-container">
+  <h1 id="total-read" class="center-align total-read"></h1>
+  <p class="center-align white-text">年访问量</p>
+</div>
+<div style="display: none" id="total-read-max"><%= Post.total_readers_num %></div>
+
 <div id="banner" class="banner">
   <%= image_tag 'me.jpg', class: 'circle avatar z-depth-3' %>
   <h1 class="center-align grey-text text-darken-3">Niltouch</h1>
