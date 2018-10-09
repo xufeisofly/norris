@@ -16,6 +16,8 @@
 
         <%= render partial: 'post_tags', locals: { post: post } %>
 
+        <span class="grey-text text-darken-1">阅读 <%= post.read_num %> 评论 <%= post.comments.count %></span>
+
         <%= link_to '阅读更多', post, data: { turbolinks: false }, class: 'read-more-link valign-wrapper' %>
       </div>
     </div>
