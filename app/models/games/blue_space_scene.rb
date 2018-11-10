@@ -8,7 +8,7 @@ class Games::BlueSpaceScene < ApplicationRecord
   end
 
   def next(answer)
-    scene_relation = Games::BlueSpaceSceneRelation.find_by(id: id, answer: answer)
+    scene_relation = Games::BlueSpaceSceneRelation.find_by(scene_id: id, answer: answer)
     self.class.find(scene_relation.next_scene_id)
   end
 end

@@ -2,11 +2,11 @@
 
 class Games::BlueSpace < ApplicationRecord
   def current_scene
-    Games::BlueSpaceScene.find(current_scene_id)
+    Games::BlueSpaceScene.find_by(id: current_scene_id)
   end
 
-  def next_scene!(_answer)
-    self.next_scene_id = current_scene.next.id
+  def next_scene!(answer)
+    self.current_scene_id = self.current_scene.next(answer).id
     save!
   end
 end
