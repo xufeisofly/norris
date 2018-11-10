@@ -50,6 +50,7 @@ gem 'sidekiq'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rubocop', require: false
 end
 
 group :development do
