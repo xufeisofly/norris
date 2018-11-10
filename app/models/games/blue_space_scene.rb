@@ -5,7 +5,8 @@ class Games::BlueSpaceScene < ApplicationRecord
     Games::BlueSpaceConversation.find(current_conversation_id)
   end
 
-  def next!(answer)
-    Games::BlueSpaceScenceRelation.find_by(id: id, answer: answer)
+  def next(answer)
+    scene_relation = Games::BlueSpaceSceneRelation.find_by(id: id, answer: answer)
+    self.class.find(scene_relation.next_scene_id)
   end
 end

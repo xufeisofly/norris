@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_10_064543) do
+ActiveRecord::Schema.define(version: 2018_11_10_070443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2018_11_10_064543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_blue_space_logs_on_player_id"
+  end
+
+  create_table "blue_space_scene_relations", force: :cascade do |t|
+    t.integer "scene_id"
+    t.string "answer"
+    t.integer "next_scene_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["next_scene_id"], name: "index_blue_space_scene_relations_on_next_scene_id"
+    t.index ["scene_id"], name: "index_blue_space_scene_relations_on_scene_id"
   end
 
   create_table "blue_space_scenes", force: :cascade do |t|

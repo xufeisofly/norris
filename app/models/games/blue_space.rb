@@ -1,5 +1,10 @@
 class Games::BlueSpace < ApplicationRecord
-  def current_scence
-    Games::BlueSpaceScence.find(current_scence_id)
+  def current_scene
+    Games::BlueSpaceScene.find(current_scene_id)
+  end
+
+  def next_scene!(answer)
+    self.next_scene_id = current_scene.next.id
+    self.save!
   end
 end
