@@ -45,6 +45,8 @@ gem 'will_paginate'
 gem 'faraday'
 gem 'jwt'
 gem 'dotenv-rails'
+gem 'rspec-rails'
+gem 'sidekiq'
 
 group :development, :test do
 end
