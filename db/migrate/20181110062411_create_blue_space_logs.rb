@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBlueSpaceLogs < ActiveRecord::Migration[5.2]
   def change
     create_table :blue_space_logs do |t|

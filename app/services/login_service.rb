@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class GithubLoginService
   include Rails.application.routes.url_helpers
 
-  def auth_url(post: nil)
+  def auth_url
     params = {
       client_id: ENV['GITHUB_CLIENT_ID'],
       redirect_uri: 'https://www.niltouch.cn/accounts/github/login'

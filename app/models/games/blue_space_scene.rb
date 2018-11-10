@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Games::BlueSpaceScene < ApplicationRecord
   has_many :conversations, class_name: 'Games::BlueSpaceConversation', dependent: :destroy, foreign_key: :scene_id
 

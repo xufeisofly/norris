@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Games::BlueSpaceConversation < ApplicationRecord
   belongs_to :scene, class_name: 'Games::BlueSpaceScene', foreign_key: :scene_id
 

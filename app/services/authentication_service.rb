@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthenticationService
   def self.generate_token(user)
     raise 'User is not persisted' unless user.persisted?

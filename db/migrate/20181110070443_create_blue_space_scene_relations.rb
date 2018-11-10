@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBlueSpaceSceneRelations < ActiveRecord::Migration[5.2]
   def change
     create_table :blue_space_scene_relations do |t|

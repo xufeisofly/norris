@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -35,34 +37,34 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'jquery-rails'
-gem 'materialize-sass', '~> 1.0.0.rc2'
-gem 'material_icons'
-gem 'redcarpet', '~> 3.4.0'
 gem 'coderay', '~> 1.1.2'
-gem 'organismo'
-gem 'will_paginate'
-gem 'faraday'
-gem 'jwt'
 gem 'dotenv-rails'
+gem 'faraday'
+gem 'jquery-rails'
+gem 'jwt'
+gem 'material_icons'
+gem 'materialize-sass', '~> 1.0.0.rc2'
+gem 'organismo'
+gem 'redcarpet', '~> 3.4.0'
 gem 'sidekiq'
+gem 'will_paginate'
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'rubocop', require: false
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'mina'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'mina'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
@@ -74,4 +76,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

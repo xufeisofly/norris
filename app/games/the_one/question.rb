@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TheOne
   class Question
     def initialize(content, selections)
@@ -5,10 +7,8 @@ module TheOne
       @selections = selections
     end
 
-    def answered?
-    end
+    def answered?; end
 
-    def scene
-    end
+    def scene; end
   end
 end

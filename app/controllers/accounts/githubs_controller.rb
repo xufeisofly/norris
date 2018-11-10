@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'login_service'
 
 class Accounts::GithubsController < ApplicationController

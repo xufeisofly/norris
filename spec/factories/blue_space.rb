@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :blue_space, class: 'Games::BlueSpace' do
     player_id { 1 }
