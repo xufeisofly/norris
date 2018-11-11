@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:create]
+
+  namespace :games do
+    resources :blue_space_conversations
+  end
 end
