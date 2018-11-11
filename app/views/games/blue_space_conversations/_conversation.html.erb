@@ -1,7 +1,9 @@
 <tr>
+  <td><%= conversation.id %></td>
   <td><%= conversation.content %></td>
   <td><%= conversation.category %></td>
   <td><%= conversation.scene_id %></td>
+  <td><%= conversation.next_id || 'NULL' %></td>
   <td>
     <%= link_to 'edit', edit_games_blue_space_conversation_path(conversation) %>
     <span>|</span>
