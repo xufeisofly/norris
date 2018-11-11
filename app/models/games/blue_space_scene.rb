@@ -13,6 +13,8 @@ class Games::BlueSpaceScene < ApplicationRecord
   end
 
   def next_conversation!
-    
+    return false if current_conversation.last_of_scene?
+    self.current_conversation_id = current_conversation.next_id
+    self.save
   end
 end
