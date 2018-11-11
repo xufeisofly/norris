@@ -1,0 +1,25 @@
+<div class="row">
+  <div id="conversations" class="container">
+    <%= link_to 'NEW', new_games_blue_space_conversation_path(scene_id: @scene.id), class: 'btn waves-effect waves-light' %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>content</th>
+          <th>category</th>
+          <th>delay(s)</th>
+          <th>scene_id</th>
+          <th>next_conversation_id</th>
+          <th>operation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render partial: 'conversation', collection: @conversations %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

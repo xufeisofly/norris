@@ -1,0 +1,22 @@
+<div class="row">
+  <div id="conversation-edit" class="container">
+    <%= form_for @conversation, method: :put do |f| %>
+      <%= f.label :content, 'content' %>
+      <%= f.text_area :content, class: "materialize-textarea" %>
+
+      <%= f.label :category, 'statement', value: 'statement' %>
+      <%= f.radio_button :category, 'statement', class: 'radio' %>
+      <%= f.label :category, 'question', value: 'question' %>
+      <%= f.radio_button :category, 'question', class: 'radio' %>
+
+      <%= f.label :delay, 'delay' %>
+      <%= f.number_field :delay, min: 0 %>
+
+      <%= f.label :next_id, 'next_id' %>
+      <%= f.text_field :next_id %>
+
+      <% submit = 'update<i class="material-icons right">update</i>'.html_safe %>
+      <%= button_tag submit, type: 'submit', class: 'btn waves-effect waves-light' %>
+    <% end %>
+  </div>
+</div>
