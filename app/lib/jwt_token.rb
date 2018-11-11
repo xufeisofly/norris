@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JwtToken
   def self.encode(payload, expire_at = nil)
     payload[:exp] = expire_at if expire_at

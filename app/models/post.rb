@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
-  has_many :post_tag_relations
+  has_many :post_tag_relations, dependent: :destroy
   has_many :tags, through: :post_tag_relations
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   accepts_nested_attributes_for :tags
 
@@ -11,16 +13,16 @@ class Post < ApplicationRecord
 
   class << self
     def total_readers_num
-      self.all.inject(0) { |result, post| result += post.readers_num }
+      all.reduce(0) { |result, post| result + post.readers_num }
     end
   end
 
   def reader_ips
-    Redis.current.smembers "p:#{self.id}:rds"
+    Redis.current.smembers "p:#{id}:rds"
   end
 
   def record_reader_ip(ip)
-    Redis.current.sadd "p:#{self.id}:rds", ip
+    Redis.current.sadd "p:#{id}:rds", ip
   end
 
   def readers_num
@@ -29,7 +31,7 @@ class Post < ApplicationRecord
 
   def tags_attributes=(tags_params)
     tags_params.each do |tag_params|
-      self.tags << Tag.find_or_create_by(tag_params) unless tag_params.blank?
+      tags << Tag.find_or_create_by(tag_params) if tag_params.present?
     end
   end
 end
