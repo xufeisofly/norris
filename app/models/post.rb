@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  has_many :post_tag_relations, dependent: :destory
+  has_many :post_tag_relations, dependent: :destroy
   has_many :tags, through: :post_tag_relations
-  has_many :comments, dependent: :destory
+  has_many :comments, dependent: :destroy
 
   accepts_nested_attributes_for :tags
 
