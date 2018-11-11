@@ -9,4 +9,15 @@ class Games::BlueSpace < ApplicationRecord
     self.current_scene_id = self.current_scene.next(answer).id
     save!
   end
+
+  class << self
+    def process
+      msg = current_scene.current_conversation.content
+      Games::BlueSpaceSendMsgJob.set(wait: current_conversation.delay.seconds).perform_later(msg)
+
+      return if current_scene.current_conversation.last_of_scene?
+
+      current_scene.next_conversation!
+    end
+  end
 end

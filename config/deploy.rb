@@ -3,6 +3,7 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv' # for rbenv support. (https://rbenv.org)
+require 'mina_sidekiq/tasks'
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
@@ -17,6 +18,7 @@ set :deploy_to, '/home/ubuntu/norris'
 set :repository, 'git@github.com:xufeisofly/norris.git'
 set :branch, 'master'
 set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/master.key')
+set :sidekiq_pid, -> { "#{fetch(:shared_path)}/tmp/pids/sidekiq.pid" }
 
 # Optional settings:
 set :user, 'ubuntu' # Username in the server to SSH to.
@@ -63,6 +65,7 @@ task :deploy do
     on :launch do
       in_path(fetch(:current_path)) do
         command %(mkdir -p tmp/)
+        invoke :'sidekiq:restart'
         command %(touch tmp/restart.txt)
       end
     end

@@ -15,7 +15,30 @@ RSpec.describe Games::BlueSpaceScene do
     end
   end
 
-  it 'enter next conversation' do
-    
+  context 'enter next conversation' do
+    let(:scene) { create(:blue_space_scene) }
+
+    let(:current_conversation) {
+      create(:conversation, content: 'first', scene_id: scene.id, next_id: nil)
+    }
+
+    let(:next_conversation) {
+      create(:conversation, content: 'second', scene_id: scene.id, next_id: nil)
+    }
+
+    before { scene.current_conversation_id = current_conversation.id }
+
+    it 'not reached the last conversation' do
+      current_conversation.update(next_id: next_conversation.id)
+      scene.next_conversation!
+
+      expect(scene.current_conversation).to eq next_conversation
+    end
+
+    it 'reached the last conversation' do
+      scene.next_conversation!
+
+      expect(scene.current_conversation).to eq current_conversation
+    end
   end
 end
