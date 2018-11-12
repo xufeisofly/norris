@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
   namespace :games do
     resources :blue_space_conversations
+    resources :blue_space_scenes
   end
 end

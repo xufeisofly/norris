@@ -1,0 +1,12 @@
+<tr>
+  <td><%= scene.id %></td>
+  <td><%= scene.name %></td>
+  <td><%= scene.next_id %></td>
+  <td>
+    <%= link_to 'show', games_blue_space_conversations_url(scene_id: scene.id) %>
+    <span>|</span>
+    <%= link_to 'edit', edit_games_blue_space_scene_path(scene) %>
+    <span>|</span>
+    <%= link_to 'delete', scene, method: :delete %>
+  </td>
+</tr>
