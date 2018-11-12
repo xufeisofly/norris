@@ -1,0 +1,13 @@
+<div class="row">
+  <div id="scene-edit" class="container">
+    <%= form_for @scene, method: :post do |f| %>
+      <%= f.label :name, 'name' %>
+      <%= f.text_field :name %>
+
+      <%= f.label :next_id, 'next_scene_id' %>
+      <%= f.text_field :next_id %>
+
+      <%= button_tag 'create', type: 'submit', class: 'btn waves-effect waves-light' %>
+    <% end %>
+  </div>
+</div>

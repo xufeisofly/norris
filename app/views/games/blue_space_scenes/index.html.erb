@@ -1,0 +1,20 @@
+<div class="row">
+  <div id="scenes" class="container">
+    <%= link_to 'NEW', new_games_blue_space_scene_path, class: 'btn waves-effect waves-light' %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>next_id</th>
+          <th>operation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render partial: 'scene', collection: @scenes %>
+      </tbody>
+    </table>
+  </div>
+</div>

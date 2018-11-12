@@ -1,0 +1,20 @@
+#scene-edit {
+  margin: 30px auto;
+  padding: 30px;
+  border: #cccccc 1px solid;
+  .radio {
+    position: inherit;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .btn {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+#scenes {
+  margin: 20px auto;
+  padding: 30px;
+}
