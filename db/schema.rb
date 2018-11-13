@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_134714) do
+ActiveRecord::Schema.define(version: 2018_11_13_044844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,9 @@ ActiveRecord::Schema.define(version: 2018_11_12_134714) do
 
   create_table "blue_space_scenes", force: :cascade do |t|
     t.string "name"
-    t.integer "current_conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "next_id"
-    t.index ["current_conversation_id"], name: "index_blue_space_scenes_on_current_conversation_id"
     t.index ["next_id"], name: "index_blue_space_scenes_on_next_id"
   end
 
@@ -60,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_134714) do
     t.integer "current_scene_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "current_conversation_id"
+    t.index ["current_conversation_id"], name: "index_blue_spaces_on_current_conversation_id"
     t.index ["current_scene_id"], name: "index_blue_spaces_on_current_scene_id"
     t.index ["player_id"], name: "index_blue_spaces_on_player_id"
   end
