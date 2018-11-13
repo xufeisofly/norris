@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Games::BlueSpace < ApplicationRecord
+  after_create :init_game
+
   def current_scene
     Games::BlueSpaceScene.find_by(id: current_scene_id)
   end
@@ -30,9 +32,16 @@ class Games::BlueSpace < ApplicationRecord
   def process
     current_scene.conversations.each do |conversation|
       Games::BlueSpaceSendMsgJob.set(
-        wait: current_conversation.delay.seconds
+        wait: conversation.delay.seconds
       ).perform_later(conversation.content)
       next_conversation!
     end
+  end
+
+  def init_game
+    first_scene = Games::BlueSpaceScene.first
+    self.current_scene_id = first_scene.id
+    self.current_conversation_id = first_scene.conversations.first.id
+    self.save
   end
 end

@@ -21,7 +21,8 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def edit
-    @relations_count = @scene.relations.count
+    @relations_count = params[:relations_count].to_i
+    @relations_count.times { @scene.relations.build }
   end
 
   def update
