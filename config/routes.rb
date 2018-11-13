@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   namespace :games do
     resources :blue_space_conversations
     resources :blue_space_scenes
+    resources :blue_spaces, only: [:index]
+    resources :blue_space_scene_relations, only: [:destroy]
   end
 end

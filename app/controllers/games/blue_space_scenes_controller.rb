@@ -6,7 +6,9 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def new
+    @relations_count = params[:relations_count].to_i || 1
     @scene = Games::BlueSpaceScene.new
+    @relations_count.times { @scene.relations.build }
   end
 
   def create
@@ -19,6 +21,8 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def edit
+    @relations_count = params[:relations_count].to_i
+    @relations_count.times { @scene.relations.build }
   end
 
   def update
@@ -38,6 +42,8 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def scene_params
-    params.require(:games_blue_space_scene).permit(:name, :next_id)
+    params.require(:games_blue_space_scene).permit(
+      :name, :next_id, relations_attributes: [:answer, :next_scene_id]
+    )
   end
 end
