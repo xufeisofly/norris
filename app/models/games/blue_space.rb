@@ -5,17 +5,34 @@ class Games::BlueSpace < ApplicationRecord
     Games::BlueSpaceScene.find_by(id: current_scene_id)
   end
 
+  def current_conversation
+    Games::BlueSpaceConversation.find_by(id: current_conversation_id)
+  end
+
   def next_scene!(answer)
-    self.current_scene_id = self.current_scene.next(answer).id
-    save!
+    return if current_scene.next(answer).nil?
+
+    self.current_scene_id = current_scene.next(answer).id
+
+    return if current_scene.conversations.empty?
+
+    self.current_conversation_id = current_scene.conversations.first.id
+    self.save!
+  end
+
+  def next_conversation!
+    return if current_conversation.last_of_scene?
+
+    self.current_conversation_id = current_conversation.next_id
+    self.save!
   end
 
   def process
-    msg = current_scene.current_conversation.content
-    Games::BlueSpaceSendMsgJob.set(wait: current_conversation.delay.seconds).perform_later(msg)
-
-    return if current_scene.current_conversation.last_of_scene?
-
-    current_scene.next_conversation!
+    current_scene.conversations.each do |conversation|
+      Games::BlueSpaceSendMsgJob.set(
+        wait: current_conversation.delay.seconds
+      ).perform_later(conversation.content)
+      next_conversation!
+    end
   end
 end

@@ -9,3 +9,5 @@ class Games::BlueSpaceConversation < ApplicationRecord
     next_id.nil?
   end
 end
+
+class NoConversationError < StandardError; end

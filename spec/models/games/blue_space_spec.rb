@@ -18,21 +18,54 @@ RSpec.describe Games::BlueSpace do
   end
 
   let(:current_scene) {
-    create(:blue_space_scene, name: 'first scene', current_conversation_id: 1)
+    create(:blue_space_scene, name: 'first scene')
   }
   let(:next_scene) {
-    create(:blue_space_scene, name: 'second scene', current_conversation_id: 1)
+    create(:blue_space_scene, name: 'second scene')
+  }
+
+  let(:current_conversation) {
+    create(:conversation, scene: current_scene, content: 'aaa', next_id: next_conversation.id)
+  }
+
+  let!(:next_conversation) {
+    create(:conversation, scene: current_scene, content: 'xxx', next_id: nil)
+  }
+
+  let!(:next_scene_conversation) {
+    create(:conversation, scene: next_scene, content: 'xxx')
   }
 
   let!(:scene_relation) {
     create(:scene_relation, scene_id: current_scene.id, next_scene_id: next_scene.id, answer: '1')
   }
 
-  it 'enter next scene' do
-    blue_space = create(:blue_space, current_scene_id: current_scene.id)
+  let(:blue_space) {
+    create(
+      :blue_space,
+      current_scene_id: current_scene.id,
+      current_conversation_id: current_conversation.id
+    )
+  }
 
-    blue_space.next_scene!('1')
+  context 'game process' do
+    it 'next scene!' do
+      blue_space.next_scene!('1')
 
-    expect(blue_space.current_scene_id).to eq next_scene.id
+      expect(blue_space.current_scene_id).to eq next_scene.id
+      expect(blue_space.current_conversation_id).to eq next_scene_conversation.id
+    end
+
+    it 'next conversation!' do
+      blue_space.next_conversation!
+
+      expect(blue_space.current_conversation_id).to eq next_conversation.id
+    end
+
+    it 'process' do
+      blue_space.process
+
+      expect(blue_space.current_conversation_id).to eq next_conversation.id
+    end
   end
 end
