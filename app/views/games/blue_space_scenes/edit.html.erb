@@ -4,8 +4,18 @@
       <%= f.label :name, 'name' %>
       <%= f.text_field :name %>
 
-      <%= f.label :next_id, 'next_scene_id' %>
-      <%= f.text_field :next_id %>
+      <%= link_to "-", edit_games_blue_space_scene_path(relations_count: @relations_count - 1), class: 'btn-floating btn-small waves-effect waves-light red', style: 'float: right' %>
+
+      <%= link_to "+", edit_games_blue_space_scene_path(relations_count: @relations_count + 1), class: 'btn-floating btn-small waves-effect waves-light', style: 'float: right' %>
+
+      <%= f.fields_for :relations do |rf| %>
+        <div class="relations-form">
+          <%= rf.label :answer, 'answer' %>
+          <%= rf.text_field :answer %>
+          <%= rf.label :next_scene_id, 'next_scene_id' %>
+          <%= rf.number_field :next_scene_id %>  
+        </div>
+      <% end %>
 
       <% submit = 'update<i class="material-icons right">update</i>'.html_safe %>
       <%= button_tag submit, type: 'submit', class: 'btn waves-effect waves-light' %>

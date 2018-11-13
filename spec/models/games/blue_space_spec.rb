@@ -25,11 +25,11 @@ RSpec.describe Games::BlueSpace do
   }
 
   let(:current_conversation) {
-    create(:conversation, scene: current_scene, content: 'aaa', next_id: next_conversation.id)
+    create(:conversation, scene: _scene, content: 'aaa', next_id: next_scene_conversation.id)
   }
 
-  let!(:next_conversation) {
-    create(:conversation, scene: current_scene, content: 'xxx', next_id: nil)
+  let!(:next_scene_conversation) {
+    create(:conversation, scene: current_scene, content: 'xxx')
   }
 
   let!(:next_scene_conversation) {
@@ -59,13 +59,13 @@ RSpec.describe Games::BlueSpace do
     it 'next conversation!' do
       blue_space.next_conversation!
 
-      expect(blue_space.current_conversation_id).to eq next_conversation.id
+      expect(blue_space.current_conversation_id).to eq next_scene_conversation.id
     end
 
     it 'process' do
       blue_space.process
 
-      expect(blue_space.current_conversation_id).to eq next_conversation.id
+      expect(blue_space.current_conversation_id).to eq next_scene_conversation.id
     end
   end
 end

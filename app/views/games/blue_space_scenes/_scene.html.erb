@@ -1,7 +1,24 @@
 <tr>
   <td><%= scene.id %></td>
   <td><%= scene.name %></td>
-  <td><%= scene.next_id %></td>
+  <td>
+    <table>
+      <thead>
+        <tr>
+          <th>answer</th>
+          <th>next_id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% scene.relations.each do |relation| %>
+          <tr>
+            <td><%= relation.answer %></td>
+            <td><%= relation.next_scene_id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </td>
   <td>
     <%= link_to 'show', games_blue_space_conversations_url(scene_id: scene.id) %>
     <span>|</span>
