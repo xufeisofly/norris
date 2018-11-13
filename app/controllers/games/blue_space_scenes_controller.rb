@@ -12,7 +12,6 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def create
-    binding.pry
     @scene = Games::BlueSpaceScene.new(scene_params)
     if @scene.save
       redirect_to games_blue_space_scenes_url
@@ -42,7 +41,7 @@ class Games::BlueSpaceScenesController < ApplicationController
   end
 
   def scene_params
-    params[:games_blue_space_scene][:relations_attributes] = params[:games_blue_space_scene][:relations_attributes].values
+    # params[:games_blue_space_scene][:relations_attributes] = params[:games_blue_space_scene][:relations_attributes].values
     params.require(:games_blue_space_scene).permit(
       :name, :next_id, relations_attributes: [:answer, :next_scene_id]
     )
