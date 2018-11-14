@@ -3,12 +3,11 @@ class Games::BlueSpaceSendMsgJob < ApplicationJob
     msg = html_format(msg)
     ActionCable.server.broadcast 'blue_space_notifications_channel', message: html_format(msg)
     # Games::BlueSpaceLog.create(player_id: 0, conversation_content: html_format(msg))
-    # Games::BlueSpace.process
   end
 
   private
 
   def html_format(msg)
-    "<p>#{msg}</p>"
+    "<div class='bubble'><p>#{msg}</p></div>"
   end
 end
