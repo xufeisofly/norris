@@ -14,10 +14,8 @@ class Games::BlueSpacesController < ApplicationController
       Games::BlueSpaceSendMsgJob.perform_later(params[:content], @game.id)
       @game.next_scene!(params[:content])
       @game.process
-      head :no_content
-    else
-      render json: { error: '请输入指定答案' }
     end
+    head :no_content
   end
 
   def create
