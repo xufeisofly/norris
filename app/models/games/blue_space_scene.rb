@@ -10,6 +10,10 @@ class Games::BlueSpaceScene < ApplicationRecord
     self.class.find_by(id: relation(answer)&.next_scene_id)
   end
 
+  def answer_valid?(answer)
+    self.next(answer).present?
+  end
+
   def relation(answer)
     Games::BlueSpaceSceneRelation.find_by(scene_id: id, answer: answer)
   end
