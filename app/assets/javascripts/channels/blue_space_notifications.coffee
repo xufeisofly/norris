@@ -7,4 +7,8 @@ App.blue_space_notifications = App.cable.subscriptions.create "BlueSpaceNotifica
 
   received: (data) ->
     $('#blue_space_chat_room').append data['message']
-    # Called when there's incoming data on the websocket for this channel
+    bubble_count = $('.bubble').length
+    # reset the height of the chat room
+    $('#blue_space_chat_room').css('height', String(bubble_count * 40) + 'px')
+    # auto scroll to the bottom of the chat room
+    $('#blue_space_chat_room').animate({ scrollTop: 767 }, 1000)

@@ -3,21 +3,31 @@
 }
 
 #blue_space_chat_room {
-  position: fixed;
-  border: #60ff00 1px solid;
-  height: 100%;
+  position: absolute;
+  bottom: 200px;
+  border-bottom: #60ff00 1px solid;
 
   overflow-y: auto;
 
   .bubble {
-    border: #fff 1px solid;
     color: #60ff00;
     display: block;
     line-height: 40px;
-    position: absolute;
-    bottom: 0;
     p {
       margin: 0;
     }
+  }
+}
+
+#blue_space_input_box {
+  position: absolute;
+  bottom: 120px;
+  color: #60ff00;
+  input {
+    border: none;
+    color: #60ff00;
+  }
+  input:focus {
+    border: none;
   }
 }

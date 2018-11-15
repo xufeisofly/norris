@@ -1,10 +1,7 @@
-var ready = function() {
+(function() {
   console.log('hahah')
-  $('.bubble').each(function() {
-    let id = Number(this.id.replace('bubble-', ''))
-    let bottom_px = String(id * 40) + 'px'
-    $(this).css('bottom', bottom_px)
-  })
-}
-
-$(document).ready(ready)
+  let bubble_count = $('.bubble').length
+  let max_height = $(document).height() - Number($('#blue_space_chat_room').css('bottom').replace('px', ''))
+  $('#blue_space_chat_room').css('max-height', String(max_height) + 'px')
+  $('#blue_space_chat_room').css('height', String(bubble_count * 40) + 'px')
+})();
