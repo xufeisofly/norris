@@ -18,3 +18,16 @@
     }
   }
 }
+
+#blue_space_input_box {
+  position: absolute;
+  bottom: 120px;
+  color: #60ff00;
+  input {
+    border: none;
+    color: #60ff00;
+  }
+  input:focus {
+    border: none;
+  }
+}
