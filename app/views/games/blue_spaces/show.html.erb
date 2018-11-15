@@ -1,0 +1,9 @@
+<div id="blue-space" class="row">
+  <div id="blue_space_chat_room" class="col l6 push-l3 s12">
+    <% @game.logs.each do |log| %>
+      <div class="bubble">
+        <p><%= log.conversation_content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

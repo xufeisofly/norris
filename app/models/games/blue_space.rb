@@ -2,6 +2,7 @@
 
 class Games::BlueSpace < ApplicationRecord
   after_create :init_game
+  has_many :logs, class_name: 'Games::BlueSpaceLog', dependent: :destroy
 
   def current_scene
     Games::BlueSpaceScene.find_by(id: current_scene_id)
@@ -33,7 +34,7 @@ class Games::BlueSpace < ApplicationRecord
     current_scene.conversations.each do |conversation|
       Games::BlueSpaceSendMsgJob.set(
         wait: conversation.delay.seconds
-      ).perform_later(conversation.content)
+      ).perform_later(conversation.content, id)
       next_conversation!
     end
   end
