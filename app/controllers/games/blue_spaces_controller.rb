@@ -21,5 +21,7 @@ class Games::BlueSpacesController < ApplicationController
   def create
     @game = Games::BlueSpace.create(player_id: nil)
     @game.init_game
+
+    render @game
   end
 end
