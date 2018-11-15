@@ -4,6 +4,7 @@
 
 #blue_space_chat_room {
   position: absolute;
+  top: 20px;
   bottom: 200px;
   border-bottom: #60ff00 1px solid;
 
@@ -24,7 +25,7 @@
   bottom: 120px;
   color: #60ff00;
   input {
-    border: none;
+    border-bottom-color: transparent;
     color: #60ff00;
   }
   input:focus {

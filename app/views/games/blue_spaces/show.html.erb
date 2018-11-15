@@ -8,6 +8,8 @@
   </div>
 
   <div id="blue_space_input_box" class="col l6 push-l3 s12 cursor">
-    <input name="" type="text" value=""/>
+    <%= form_tag answer_games_blue_space_path do %>
+      <%= text_field_tag :content %>
+    <% end %>
   </div>
 </div>

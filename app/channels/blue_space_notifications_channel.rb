@@ -1,6 +1,6 @@
 class BlueSpaceNotificationsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "blue_space_notifications_channel"
+    stream_from 'blue_space_notifications_channel'
   end
 
   def unsubscribed
