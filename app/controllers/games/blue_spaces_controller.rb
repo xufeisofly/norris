@@ -15,8 +15,11 @@ class Games::BlueSpacesController < ApplicationController
       @game.next_scene!(params[:content])
       @game.process
     end
-
-    if @game.logs.nil? && params[:content] == '开始'
+    if @game.logs.empty? && params[:content] == 'start'
+      @game.init_game
+      @game.process
+    elsif @game.logs.any? && params[:content] == 'reset'
+      @game.logs.destroy_all
       @game.init_game
       @game.process
     end
