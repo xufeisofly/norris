@@ -1,4 +1,5 @@
-var ready = function() {
+$(document).ready(function() {
+  console.log('ddd')
   $('.sidenav').sidenav()
 
   // sidenav open
@@ -33,8 +34,4 @@ var ready = function() {
     if (totalReadCounter > totalRead)
       clearInterval(totalReadIntervalId);
   }, 1000/totalRead)
-
-
-}
-
-$(document).ready(ready)
+})

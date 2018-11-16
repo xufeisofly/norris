@@ -15,4 +15,4 @@
 //= require materialize
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require posts
