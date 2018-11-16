@@ -15,6 +15,7 @@ class Games::BlueSpacesController < ApplicationController
       @game.next_scene!(params[:content])
       @game.process
     end
+
     if @game.logs.empty? && params[:content] == 'start'
       @game.init_game
       @game.process
@@ -23,7 +24,8 @@ class Games::BlueSpacesController < ApplicationController
       @game.init_game
       @game.process
     end
-    head :no_content
+
+    render :show
   end
 
   def create
