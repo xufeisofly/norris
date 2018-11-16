@@ -75,6 +75,14 @@ task :deploy do
   # run(:local){ say 'done' }
 end
 
+namespace :sidekiq do
+  task :restart do
+    in_path(fetch(:current_path)) do
+      command %(bundle exec sidekiq -d -L log/sidekiq.log -C config/sidekiq.yml -e production)
+    end
+  end
+end
+
 # For help in making your deploy script, see the Mina documentation:
 #
 #  - https://github.com/mina-deploy/mina/tree/master/docs
