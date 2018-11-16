@@ -7,4 +7,10 @@ $(document).ready(function() {
 
   let scroll_height = bubble_count * 40
   $('#blue_space_chat_room').animate({ scrollTop: scroll_height }, 1000)
+
+  $('#blue_space_input_box #content').keyup(function(e) {
+    if(e.keyCode == 13) {
+      $(this).first().val()
+    }
+  })
 })
