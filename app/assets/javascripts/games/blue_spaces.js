@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require turbolinks
+//= require cable
 //= require_self
 
 
