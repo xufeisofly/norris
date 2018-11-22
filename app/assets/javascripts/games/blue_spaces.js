@@ -28,6 +28,7 @@ $(document).ready(function() {
   $('#blue_space_input_box #content').keyup(function(e) {
     if(e.keyCode == 13) {
       $(this).first().val('')
+             .focusout()
     }
   })
 })
