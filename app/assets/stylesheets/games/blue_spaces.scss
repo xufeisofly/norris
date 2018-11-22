@@ -4,7 +4,7 @@
 
 #blue_space_chat_room {
   position: absolute;
-  bottom: 200px;
+  bottom: 100px;
   border-bottom: #60ff00 1px solid;
 
   overflow-y: auto;
@@ -13,6 +13,7 @@
     color: #60ff00;
     display: block;
     line-height: 40px;
+    font-size: 14px;
     p {
       margin: 0;
     }
@@ -21,7 +22,7 @@
 
 #blue_space_input_box {
   position: absolute;
-  bottom: 120px;
+  bottom: 20px;
   color: #60ff00;
   input {
     border-bottom-color: transparent;
