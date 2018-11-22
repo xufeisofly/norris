@@ -25,7 +25,7 @@ class Games::BlueSpacesController < ApplicationController
       @game.process
     end
 
-    head :no_content
+    head :ok
   end
 
   def create
