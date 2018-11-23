@@ -26,9 +26,7 @@ class Games::BlueSpacesController < ApplicationController
       @game.process
     end
 
-    respond_to do |format|
-      format.json
-    end
+    head :no_content
   end
 
   def create
