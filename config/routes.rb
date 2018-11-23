@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :blue_space_scenes
     resources :blue_spaces, only: [:index, :show, :create] do
       member do
-        post :answer
+        put :answer
       end
     end
     resources :blue_space_scene_relations, only: [:destroy]

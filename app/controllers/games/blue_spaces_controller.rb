@@ -1,5 +1,6 @@
 class Games::BlueSpacesController < ApplicationController
   layout 'blue_space'
+  skip_before_action :verify_authenticity_token, only: :answer
 
   def index
   end
@@ -25,7 +26,9 @@ class Games::BlueSpacesController < ApplicationController
       @game.process
     end
 
-    render :show
+    respond_to do |format|
+      format.json
+    end
   end
 
   def create
