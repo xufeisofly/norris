@@ -1,7 +1,7 @@
 class Games::BlueSpaceSendMsgJob < ApplicationJob
-  def perform(msg, id)
+  def perform(msg, id, log: true)
     game = Games::BlueSpace.find id
-    game.logs.create(player_id: nil, conversation_content: msg)
+    game.logs.create(player_id: nil, conversation_content: msg) if log
     ActionCable.server.broadcast 'blue_space_notifications_channel', message: html_format(msg)
   end
 

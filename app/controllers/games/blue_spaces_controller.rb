@@ -15,6 +15,8 @@ class Games::BlueSpacesController < ApplicationController
       Games::BlueSpaceSendMsgJob.perform_later(params[:content], @game.id)
       @game.next_scene!(params[:content])
       @game.process
+    else
+      Games::BlueSpaceSendMsgJob.perform_later(params[:content], @game.id, log: false)
     end
 
     if @game.logs.empty? && params[:content] == 'start'
