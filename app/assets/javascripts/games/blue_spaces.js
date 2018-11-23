@@ -28,8 +28,22 @@ $(document).ready(function() {
 
   $('#blue_space_input_box #content').keyup(function(e) {
     if(e.keyCode == 13) {
+      let content = $(this).first().val()
+      let id = $(this).first().attr('data-id')
+      $.ajax({
+        url: `/games/blue_spaces/${id}/answer.js`,
+        type: 'POST',
+        dataType: 'script',
+        data: {content: content},
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
       $(this).first().val('')
-      /* $(this).focusout() */
+      $(this).focusout()
     }
   })
 })

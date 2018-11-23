@@ -26,7 +26,7 @@ class Games::BlueSpacesController < ApplicationController
       @game.process
     end
 
-    head :ok && return
+    head :ok
   end
 
   def create
