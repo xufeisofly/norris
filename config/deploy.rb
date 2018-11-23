@@ -78,6 +78,7 @@ end
 namespace :sidekiq do
   task :restart do
     in_path(fetch(:current_path)) do
+      command %(ps -ef | grep sidekiq | grep -v grep | awk '{print $2}' | xargs kill -9)
       command %(bundle exec sidekiq -d -L log/sidekiq.log -C config/sidekiq.yml -e production)
     end
   end
