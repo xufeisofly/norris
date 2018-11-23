@@ -10,7 +10,7 @@
   <div id="blue_space_input_box" class="col l6 push-l3 s12 cursor">
     <%= form_tag answer_games_blue_space_path(format: :json), method: :put, remote: true do %>
       <%= text_field_tag :content, nil, autocomplete: 'off' %>
-      <%= submit_tag 'send', value: nil, style: 'display: none' %>
+      <%= submit_tag 'send', value: nil, style: '' %>
     <% end %>
   </div>
 </div>
