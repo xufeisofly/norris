@@ -16,7 +16,7 @@ class Games::BlueSpacesController < ApplicationController
       @game.next_scene!(params[:content])
       @game.process
     else
-      Games::BlueSpaceSendMsgJob.perform_later(params[:content], @game.id, log: false)
+      Games::BlueSpaceSendMsgJob.perform_later(params[:content] + '[请输入指定答案]', @game.id, log: false)
     end
 
     if @game.logs.empty? && params[:content] == 'start'
