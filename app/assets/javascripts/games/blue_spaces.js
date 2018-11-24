@@ -27,8 +27,9 @@ $(document).ready(function() {
   let scroll_height = bubble_count * bubble_line_height
   $('#blue_space_chat_room').animate({ scrollTop: scroll_height }, 1000)
 
-  $('#blue_space_input_box #content').keyup(function(e) {
+  $('#content').keyup(function(e) {
     if(e.keyCode == 13) {
+      $('#content').blur()
       let content = $(this).first().val()
       let id = $(this).first().attr('data-id')
       $.ajax({
@@ -39,12 +40,11 @@ $(document).ready(function() {
       })
       .done(function() {
         console.log("success");
+        $(this).first().val('')
       })
       .fail(function() {
         console.log("error");
       })
-      $(this).first().val('')
-      $(this).blur()
     }
   })
 })
