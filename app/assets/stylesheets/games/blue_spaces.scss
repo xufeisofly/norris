@@ -4,7 +4,7 @@
 
 #blue_space_chat_room {
   position: absolute;
-  bottom: 140px;
+  bottom: 200px;
   border-bottom: #60ff00 1px solid;
 
   overflow-y: auto;
@@ -22,13 +22,16 @@
 
 #blue_space_input_box {
   position: absolute;
-  bottom: 60px;
+  bottom: 140px;
   color: #60ff00;
   input {
     border-bottom-color: transparent;
     color: #60ff00;
+    caret-color: #60ff00;
   }
   input:focus {
-    border: none;
+    border-bottom-color: #60ff00;
+    color: #60ff00;
+    caret-color: #60ff00;
   }
 }
