@@ -29,7 +29,6 @@ $(document).ready(function() {
 
   $('#content').keyup(function(e) {
     if(e.keyCode == 13) {
-      $('#content').blur()
       let content = $(this).first().val()
       let id = $(this).first().attr('data-id')
       $.ajax({
@@ -41,8 +40,10 @@ $(document).ready(function() {
       .done(function() {
         console.log("success");
         $('#content').first().val('')
+        $('#content').blur()
       })
       .fail(function() {
+        $('#content').blur()
         console.log("error");
       })
     }
