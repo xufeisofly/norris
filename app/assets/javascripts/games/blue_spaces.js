@@ -40,7 +40,7 @@ $(document).ready(function() {
       })
       .done(function() {
         console.log("success");
-        $(this).first().val('')
+        $('#content').first().val('')
       })
       .fail(function() {
         console.log("error");
