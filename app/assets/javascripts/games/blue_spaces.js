@@ -13,6 +13,7 @@
 //= require jquery
 //= require turbolinks
 //= require cable
+//= require serviceworker-companion
 //= require_self
 
 
