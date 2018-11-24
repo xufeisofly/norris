@@ -29,8 +29,8 @@ $(document).ready(function() {
 
   $('#content').keyup(function(e) {
     if(e.keyCode == 13) {
-      let content = $(this).first().val()
-      let id = $(this).first().attr('data-id')
+      let content = $('#content').first().val()
+      let id = $('#content').first().attr('data-id')
       $.ajax({
         url: `/games/blue_spaces/${id}/answer.js`,
         type: 'POST',
