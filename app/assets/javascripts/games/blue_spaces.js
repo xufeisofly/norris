@@ -39,13 +39,12 @@ $(document).ready(function() {
       })
       .done(function() {
         console.log("success");
-        $(this).focusout()
       })
       .fail(function() {
         console.log("error");
-        $(this).focusout()
       })
       $(this).first().val('')
+      $('#blue_space_chat_room').focus()
     }
   })
 })
