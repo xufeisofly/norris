@@ -31,12 +31,12 @@ class Games::BlueSpace < ApplicationRecord
   end
 
   def process
-    current_scene.conversations.each do |conversation|
-      Games::BlueSpaceSendMsgJob.set(
-        wait: conversation.delay.seconds
-      ).perform_later(conversation.content, id)
-      next_conversation!
-    end
+    return if current_conversation.last_of_scene?
+
+    Games::BlueSpaceSendMsgJob.set(
+      wait: current_conversation.delay.seconds
+    ).perform_later(current_conversation.content, id)
+    next_conversation!
   end
 
   def init_game
