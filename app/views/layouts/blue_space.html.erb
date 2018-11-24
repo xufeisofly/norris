@@ -8,6 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'games/blue_spaces', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content ="width=device-width,height=device-height,initial-scale=1" />
+    <!-- pwa -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="BlueSpace">
+    <link rel="apple-touch-icon" href="<%= image_url('icon-152x152.png') %>">
   </head>
 
   <body class="blue-space-layout">

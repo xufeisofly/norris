@@ -49,6 +49,8 @@ gem 'redcarpet', '~> 3.4.0'
 gem 'sidekiq'
 gem 'will_paginate'
 
+gem 'serviceworker-rails'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-byebug'
