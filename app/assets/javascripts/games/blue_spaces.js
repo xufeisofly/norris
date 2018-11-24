@@ -44,7 +44,7 @@ $(document).ready(function() {
         console.log("error");
       })
       $(this).first().val('')
-      $('#blue_space_chat_room').focus()
+      $(this).blur()
     }
   })
 })
