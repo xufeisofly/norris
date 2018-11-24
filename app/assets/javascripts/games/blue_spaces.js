@@ -36,7 +36,7 @@ $(document).ready(function() {
         url: `/games/blue_spaces/${id}/answer.js`,
         type: 'POST',
         dataType: 'script',
-        data: {content: `我: ${content}`},
+        data: {content: `${content}`},
       })
       .done(function() {
         console.log("success");

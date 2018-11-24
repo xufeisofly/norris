@@ -12,11 +12,11 @@ class Games::BlueSpacesController < ApplicationController
   def answer
     @game = Games::BlueSpace.find(params[:id])
     if @game.current_scene.answer_valid?(params[:content])
-      Games::BlueSpaceSendMsgJob.perform_later(params[:content], @game.id)
+      Games::BlueSpaceSendMsgJob.perform_later('我: ' + params[:content], @game.id)
       @game.next_scene!(params[:content])
       @game.process
     else
-      Games::BlueSpaceSendMsgJob.perform_later(params[:content] + '[请输入指定答案]', @game.id, log: false)
+      Games::BlueSpaceSendMsgJob.perform_later('我: ' + params[:content] + '[请输入指定答案]', @game.id, log: false)
     end
 
     if @game.logs.empty? && params[:content] == 'start'
