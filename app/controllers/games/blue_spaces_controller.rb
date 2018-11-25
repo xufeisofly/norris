@@ -14,19 +14,21 @@ class Games::BlueSpacesController < ApplicationController
 
     if @game.logs.empty? && params[:content] == 'start'
       @game.init_game
+      @game.send_ws('我: ' + params[:content])
       @game.process
     elsif @game.logs.any? && params[:content] == 'reset'
       @game.logs.destroy_all
       @game.init_game
+      @game.send_ws('我: ' + params[:content])
       @game.process
     end
 
     if @game.current_scene.answer_valid?(params[:content])
-      Games::BlueSpaceSendMsgJob.perform_later('我: ' + params[:content], @game.id)
+      @game.send_ws('我: ' + params[:content])
       @game.next_scene!(params[:content])
       @game.process
     else
-      Games::BlueSpaceSendMsgJob.perform_later('我: ' + params[:content] + '[请输入指定答案]', @game.id, log: false)
+      @game.send_ws('我: ' + params[:content] + '[请输入指定答案]', log: false)
     end
 
     head :ok

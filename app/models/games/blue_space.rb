@@ -31,12 +31,19 @@ class Games::BlueSpace < ApplicationRecord
   end
 
   def process
-    return if current_conversation.last_of_scene?
+    Thread.new do
+      sleep(current_conversation.delay)
 
-    Games::BlueSpaceSendMsgJob.set(
-      wait: current_conversation.delay.seconds
-    ).perform_later(current_conversation.content, id)
-    next_conversation!
+      if send_ws(current_conversation.content) && !current_conversation.last_of_scene?
+        next_conversation!
+        self.process
+      end
+    end
+  end
+
+  def send_ws(msg, log: true)
+    self.logs.create(player_id: nil, conversation_content: msg) if log
+    ActionCable.server.broadcast('blue_space_notifications_channel', message: html_format(msg))
   end
 
   def init_game
@@ -44,5 +51,11 @@ class Games::BlueSpace < ApplicationRecord
     self.current_scene_id = first_scene.id
     self.current_conversation_id = first_scene.conversations.first.id
     self.save
+  end
+
+  private
+
+  def html_format(msg)
+    "<div class='bubble'><p>#{msg}</p></div>"
   end
 end
