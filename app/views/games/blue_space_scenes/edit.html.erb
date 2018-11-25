@@ -1,5 +1,6 @@
 <div class="row">
   <div id="scene-edit" class="container">
+    <%= link_to 'BACK', games_blue_space_scenes_path, class: 'btn waves-effect waves-light' %>
     <%= form_for @scene, method: :put do |f| %>
       <%= f.label :name, 'name' %>
       <%= f.text_field :name %>
