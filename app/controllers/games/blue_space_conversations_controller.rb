@@ -17,8 +17,9 @@ class Games::BlueSpaceConversationsController < ApplicationController
   end
 
   def create
-    last_conversation = Games::BlueSpaceConversation.find_by(next_id: nil)
     @conversation = Games::BlueSpaceConversation.new(conversation_params)
+    last_conversation = @conversation.scene.conversations.find_by(next_id: nil)
+
     if @conversation.save
       last_conversation && last_conversation.update(next_id: @conversation.id)
 
