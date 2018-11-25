@@ -8,7 +8,7 @@ App.blue_space_notifications = App.cable.subscriptions.create "BlueSpaceNotifica
   received: (data) ->
     $('#blue_space_chat_room').append data['message']
     bubble_count = $('.bubble').length
-    bubble_line_height = Number($('.bubble').css('line-height').replace('px', ''))
+    bubble_line_height = Number($('.bubble').css('height').replace('px', ''))
     # reset the height of the chat room
     $('#blue_space_chat_room').css('height', String(bubble_count * bubble_line_height) + 'px')
     # auto scroll to the bottom of the chat room

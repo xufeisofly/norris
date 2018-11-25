@@ -2,12 +2,20 @@
   <div id="blue_space_chat_room" class="col l6 push-l3 s12">
     <% @game.logs.order(created_at: :asc).each do |log| %>
       <div class="bubble">
+        <span class="log-time"><%= log.created_at %></span>
         <p><%= log.conversation_content %></p>
       </div>
     <% end %>
   </div>
 
   <div id="blue_space_input_box" class="col l6 push-l3 s12 cursor">
-    <%= text_field_tag :content, nil, autocomplete: 'off', data: { id: @game.id } %>
+    <div class="row">
+      <div class="col l1 s1 label">
+        <span>></span>
+      </div>
+      <div class="col l11 s11 cursor">
+        <%= text_field_tag :content, nil, autocomplete: 'off', data: { id: @game.id } %>
+      </div>
+    </div>
   </div>
 </div>

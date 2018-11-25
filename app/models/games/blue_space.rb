@@ -43,7 +43,10 @@ class Games::BlueSpace < ApplicationRecord
 
   def send_ws(msg, log: true)
     self.logs.create(player_id: nil, conversation_content: msg) if log
-    ActionCable.server.broadcast('blue_space_notifications_channel', message: html_format(msg))
+    ActionCable.server.broadcast(
+      'blue_space_notifications_channel',
+      message: html_format(msg, Time.zone.now)
+    )
   end
 
   def init_game
@@ -55,7 +58,7 @@ class Games::BlueSpace < ApplicationRecord
 
   private
 
-  def html_format(msg)
-    "<div class='bubble'><p>#{msg}</p></div>"
+  def html_format(msg, log_time)
+    "<div class='bubble'><span class='log-time'>#{log_time}</span><p>#{msg}</p></div>"
   end
 end

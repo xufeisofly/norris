@@ -19,7 +19,7 @@
 
 $(document).ready(function() {
   let bubble_count = $('.bubble').length
-  let bubble_line_height = Number($('.bubble').css('line-height').replace('px', ''))
+  let bubble_line_height = Number($('.bubble').css('height').replace('px', ''))
   let max_height = $(document).height() - Number($('#blue_space_chat_room').css('bottom').replace('px', ''))
   $('#blue_space_chat_room').css('max-height', String(max_height) + 'px')
   $('#blue_space_chat_room').css('height', String(bubble_count * bubble_line_height) + 'px')
