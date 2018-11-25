@@ -19,13 +19,15 @@
 
 $(document).ready(function() {
   let bubble_count = $('.bubble').length
-  let bubble_line_height = Number($('.bubble').css('height').replace('px', ''))
+  let bubble_line_height = $('.bubble').height()
   let max_height = $(document).height() - Number($('#blue_space_chat_room').css('bottom').replace('px', ''))
   $('#blue_space_chat_room').css('max-height', String(max_height) + 'px')
   $('#blue_space_chat_room').css('height', String(bubble_count * bubble_line_height) + 'px')
 
   let scroll_height = bubble_count * bubble_line_height
-  $('#blue_space_chat_room').animate({ scrollTop: scroll_height }, 1000)
+  // 不知道为什么手机上scroll_height高度不够，乘以一个系数吧
+  let error_efficient = 1.2
+  $('#blue_space_chat_room').animate({ scrollTop: scroll_height * error_efficient }, 1000)
 
   $('#content').keyup(function(e) {
     if(e.keyCode == 13) {
