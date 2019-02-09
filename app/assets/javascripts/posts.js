@@ -33,5 +33,5 @@ $(document).ready(function() {
     $('#total-read').html(String(totalReadCounter++))
     if (totalReadCounter > totalRead)
       clearInterval(totalReadIntervalId);
-  }, 1000/totalRead)
+  }, 9000/totalRead)
 })
