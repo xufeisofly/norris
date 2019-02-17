@@ -123,3 +123,11 @@
   font-size: 70px;
   color: #fff;
 }
+
+#post-title-img {
+  img {
+	width: 100%;
+    object-fit: cover;
+    height: 600px;
+  }
+}

@@ -2,6 +2,13 @@
   <%= form_for @post, url: posts_path, html: { class: 'col s12' } do |f| %>
     <div class="row">
       <div class="input-field col s12">
+        <%= f.text_field :desc_img, class: 'validate', placeholder: 'https://' %>
+        <%= label_tag :desc_img, '头图链接' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
         <%= f.text_field :title, class: 'validate', placeholder: 'Placeholder' %>
         <%= label_tag :title, '题目' %>
       </div>
