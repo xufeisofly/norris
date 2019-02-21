@@ -30,10 +30,17 @@ $(document).ready(function() {
   var totalReadCounter = 0
   if ($('#total-read-max').get(0)) {
     var totalRead = Number($('#total-read-max').get(0).innerHTML)
-    var totalReadIntervalId = setInterval(function(){
-      $('#total-read').html(String(totalReadCounter++))
-      if (totalReadCounter > totalRead)
-        clearInterval(totalReadIntervalId);
-    }, 1000/totalRead)
+    var totalReadIntervalId1 = setInterval(function(){
+      totalReadCounter += 17
+      $('#total-read').html(String(totalReadCounter))
+      if (totalReadCounter > totalRead - 20) {
+        clearInterval(totalReadIntervalId1);
+        var totalReadIntervalId2 = setInterval(function(){
+          $('#total-read').html(String(totalReadCounter++))
+          if (totalReadCounter > totalRead)
+            clearInterval(totalReadIntervalId2);
+        }, 50)
+      }
+    }, 50)
   }
 })

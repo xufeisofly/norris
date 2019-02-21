@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   class << self
     def total_readers_num
       all.reduce(0) { |result, post| result + post.readers_num }
+      1000
     end
   end
 
