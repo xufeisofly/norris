@@ -2,7 +2,7 @@
   <div class="col s12 m12 xl10 offset-xl1">
     <div class="card">
       <div class="card-content" style="padding-bottom: 0">
-        <div class="book-title"><%= link_to book.title, edit_book_path(book), data: { turbolinks: false } %></div>
+        <div class="book-title"><%= book.title %></div>
         <div class="row">
           <div class="col s12 m4">
             <label class="book-label" style="<%= display?(book.scan) %>">
