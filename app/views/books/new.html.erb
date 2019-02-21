@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for @book, url: books_path, html: { class: 'col s12' } do |f| %>
+  <%= form_for @book, html: { class: 'col s12' } do |f| %>
     <div class="row">
       <div class="input-field col s12">
         <%= f.text_field :title, class: 'validate' %>
