@@ -6,10 +6,13 @@ class Book < ApplicationRecord
   end
 
   def scan=(value)
-    return if value.to_i == 0
-
-    self.read_status = 1
-    self.progress = 40
+    if value.to_i == 0
+      self.progress = 0
+      self.read_status = 0
+    else
+      self.read_status = 1
+      self.progress = 40
+    end
     self.save
   end
 

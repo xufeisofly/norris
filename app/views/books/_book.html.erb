@@ -1,20 +1,28 @@
 <div class="row container book-container">
   <div class="col s12 m12 xl10 offset-xl1">
     <div class="card">
-      <div class="card-content">
+      <div class="card-content" style="padding-bottom: 0">
         <div class="book-title"><%= link_to book.title, edit_book_path(book), data: { turbolinks: false } %></div>
-        <label class="book-label">
-          <%= check_box_tag "scan", book.id, book.scan %>
-          <span>第一遍(泛读)</span>
-        </label>
-        <label class="book-label">
-          <%= check_box_tag "review", book.id, book.review %>
-          <span>第二遍(精读)</span>
-        </label>
-        <label class="book-label">
-          <%= check_box_tag "overview", book.id, book.overview %>
-          <span>写文章</span>
-        </label>
+        <div class="row">
+          <div class="col s12 m4">
+            <label class="book-label" style="<%= display?(book.scan) %>">
+              <%= check_box_tag "scan", book.id, book.scan %>
+              <span class="checkbox">第一遍(泛读)</span>
+            </label>
+          </div>
+          <div class="col s12 m4">
+            <label class="book-label" style="<%= display?(book.review) %>">
+              <%= check_box_tag "review", book.id, book.review %>
+              <span class="checkbox">第二遍(精读)</span>
+            </label>
+          </div>
+          <div class="col s12 m4">
+            <label class="book-label" style="<%= display?(book.overview) %>">
+              <%= check_box_tag "overview", book.id, book.overview %>
+              <span class="checkbox">写文章</span>
+            </label>
+          </div>
+        </div>
       </div>
       <div class="progress">
         <div class="determinate" style="width: <%= book.progress %>%"></div>
