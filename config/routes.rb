@@ -28,4 +28,6 @@ Rails.application.routes.draw do
     end
     resources :blue_space_scene_relations, only: [:destroy]
   end
+
+  resources :books
 end

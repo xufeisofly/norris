@@ -1,0 +1,27 @@
+<div class="container">
+  <%= form_for @book, html: { class: 'col s12' } do |f| %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_field :title, class: 'validate' %>
+        <%= label_tag :title, '书名' %>
+      </div>
+    </div>
+    <div class="row">
+      <label>
+        <%= f.check_box :scan %>
+        <span>第一遍（浏览）</span>
+      </label>
+      <label>
+        <%= f.check_box :review %>
+        <span>第二遍（问题）</span>
+      </label>
+      <label>
+        <%= f.check_box :overview %>
+        <span>发布文章</span>
+      </label>
+    </div>
+
+    <% submit = 'Submit<i class="material-icons right">send</i>'.html_safe %>
+    <%= button_tag submit, type: 'submit', class: 'btn waves-effect waves-light' %>
+  <% end %>
+</div>

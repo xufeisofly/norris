@@ -1,0 +1,24 @@
+<div class="row container book-container">
+  <div class="col s12 m12 xl10 offset-xl1">
+    <div class="card">
+      <div class="card-content">
+        <div class="book-title"><%= link_to book.title, edit_book_path(book), data: { turbolinks: false } %></div>
+        <label class="book-label">
+          <%= check_box_tag "scan", book.id, book.scan %>
+          <span>第一遍(泛读)</span>
+        </label>
+        <label class="book-label">
+          <%= check_box_tag "review", book.id, book.review %>
+          <span>第二遍(精读)</span>
+        </label>
+        <label class="book-label">
+          <%= check_box_tag "overview", book.id, book.overview %>
+          <span>写文章</span>
+        </label>
+      </div>
+      <div class="progress">
+        <div class="determinate" style="width: <%= book.progress %>%"></div>
+      </div>
+    </div>
+  </div>
+</div>
